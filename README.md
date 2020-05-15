@@ -20,12 +20,16 @@ To better understand the reason behind why there are more "Successful" campaigns
 If we add a filter for the "Plays" subcategory and remove the "Outcome" field from our chart, we can see that total volume of plays does indeed follow the same trend as "Successful" plays in the above chart:
  ![Plays based on Launch Date](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Plays%20by%20Launch%20Date.png)
   
- - *This supports the above hypothesis that the result of more "Successful" campaigns in the first half of the year may only be due to having more total plays*.
+ - *This supports the above hypothesis that the reason behind more "Successful" campaigns occuring in the first half of the year may only be due to having more total plays*.
  
-To back this up, we should also look into whether the `% of total Successful campaigns` varies by each month:
+To test this theory, we should look into whether the `% of total Successful campaigns` varies by month:
 ![Outcome percentage based on Launch Date](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcome%20%25%20Based%20on%20Launch%20Date.png)
 
-- We can see that there is actually little variance between months when it comes to the percentage of Successful plays. Most months only vary between a 65%-75% rate, with the exception of December.
-- *This would lead me to conclude that success is not determined by when your play is hosted throughout the year, but that there are other factors to consider when considering success.*
+- Based on the chart above, we can see that there is actually little variance between months when it comes to the % of Successful plays. Most months vary between a 65%-70% success rate, with the exception of December (I'm not considering March due to the ~15% that are still live.).
+- *This would lead me to conclude that a play's success is not determined by the month it takes place, but that there are other factors to consider when measuring success.*
  
- 
+   ##### Goal Setting
+  Seeing as the success of a campaign is ultimately decided by the Goal, we should dive in to how Goal setting can influence the overall success rate.
+  
+  Below, we are looking at Outcomes based on Goal ranges (consolidated groupings to `>30,000` to account for low volume in higher goal ranges):
+  ![Outcome percentage based on Launch Date](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcomes%20Based%20on%20Goals%20Consolidated.png)

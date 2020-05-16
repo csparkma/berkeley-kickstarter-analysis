@@ -58,17 +58,10 @@ With all of the plays broken out into groups, I then calculated the success rate
 ![Avg Goal for Failed Plays](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Avg%20Goals%20for%20Failed%20Plays.png)
 
 - It's apparent that Successful campaigns have an average goal that is signifcantly lower than Failed campaigns. The **highest** average Goal for Successful plays is still **4.5% lower than the lowest average Goal for Failed plays.** But I do not think we can conclude that *Average goal* is the only influencing factor.
-- Looking at the chart for Successful plays, we can see the *Average goal* between the "1-20" group and the "21-40" group **increases by 83%** with little change in the Success rate. Seeing as the *Average goal* for both groups is still relatively low, this doesn't surprise me.
-- However, the *Average Goal* between the "21-40" group and the "40+" group **only increases 8%** yet the *Success Rate* drops signficantly (42% for "40+" campaigns from 68% for "21-40")!
-- Meaning, there appears to be a significant dropoff in Success rate for campaigns that run longer than 40 days, even with little change to the Average goal. 
+- Looking at the chart for Total Plays, we can see the *Average goal* between the "1-20" group and the "21-40" group **increases by 95% with little change in the Success rate**.
+- However, the *Average Goal* between the "21-40" group and the "40+" group **increases by less than half of that** yet the *Success Rate* drops signficantly (42% for "40+" campaigns from 68% for "21-40")!
+- Meaning, **there appears to be a significant dropoff in Success rate for campaigns that run longer than 40 days, especially if they have an inflated Goal.**
 
 ##### Conclusion
-- Given the above analysis, I belive there is sufficient evidence to suggest that both the Goal and the length of the campaign contribute to its overall succcess. However, without additional data on *how long it took for each campaign to hit its goal*(not just how long the campaign ran), it would be difficult to quantiy by how much.
-- Additional analysis should also be done on whether `backer_count` and `geographic region` influence overall success rate. While we can draw some conclusions from the above analysis, it would be inadvisable to use it to conclude that it is only Goal and the length of the campaign that lead to success. 
-
-
-
-##### Limitations
-- How long did it take for each campaign to hit its goal
-- Live data can skew results
-- 
+- Given the above analysis, I believe there is sufficient evidence to suggest that both the *Goal Amount* and the *Length of the campaign* **do** contribute to its overall succcess. However, without additional data on *how long it took for each campaign to hit its goal* (rather than just how long the campaign ran), it would be difficult to quantify by how much.
+- Additional analysis should also be done on whether `backer_count` and `geographic region` influence overall success rate. While we can draw some conclusions from the above analysis, it would be inadvisable to use it to conclude that it is **only** *Goal amount* and the *Length of the campaign* that lead to success. 

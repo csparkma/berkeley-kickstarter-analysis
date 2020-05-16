@@ -8,8 +8,8 @@ Week 1 Excel Analysis on Plays
   - *Does length of a campaign contribute to its ultimate success or failure?*
   
   ##### Results
-  Based only on the findings from the two new analyses (outcomes based on goals and outcomes based on launch date), I found it difficult to answer the above questions. By only looking at when successful plays took place throughout the year and how many plays were successful by Goal amount, I was unable to conclude whether the `length of a campaign contributes to its success or failure.` However, we can use these as a jumping off point for additional analysis to drill in further.
-   ##### Seasonality Trends
+  Based only on the findings from the new analyses: *Outcomes based on Goals* and *Outcomes based on launch date*, I found it difficult to definitively answer the above questions. By only looking at when successful plays took place throughout the year and how many plays were successful by Goal amount, I was unable to conclude whether the `length of a campaign contributes to its success or failure.` However, we can use these as jumping off points for additional analysis to drill in further.
+   ##### Seasonal Trends
   Let's start by attempting to identify a seasonal trend for theatre campaigns (chart below):
    ![Outcomes based on Launch Date](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcomes%20based%20on%20Launch%20Date.png)
 
@@ -23,42 +23,48 @@ If we add a filter for the "Plays" subcategory and remove the "Outcome" field fr
  - *This supports the above hypothesis that the reason behind more "Successful" campaigns occuring in the first half of the year may only be due to having more total plays*.
  
 To test this theory, we should look into whether the `% of total Successful campaigns` varies by month:
-![Outcome percentage based on Launch Date](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcome%20%25%20Based%20on%20Launch%20Date.png)
+![Outcome percentage based on Launch Month](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/outcome_pct_based_on_launch_month.png)
 
-- Based on the chart above, we can see that there is actually little variance between months when it comes to the % of Successful plays. Most months vary between a 65%-70% success rate, with the exception of December (I'm not considering March due to the ~15% that are still live.).
+- Based on the chart above, we can see that there is actually little variance between months when it comes to the % of Successful plays. All months vary between a 65%-70% success rate, with the exception of December.
 - *This would lead me to conclude that a play's success is not determined by the month it takes place, but that there are other factors to consider when measuring success.*
  
    ##### Goal Setting
-  Seeing as the success of a campaign is ultimately decided by the Goal, we should dive in to how Goal setting can influence the overall success rate.
+  Seeing as the success of a campaign is ultimately decided by whether it achieves its Goal, we should dive in to how Goal setting can influence the overall success rate.
   
-  Below, we are looking at Outcomes based on Goal ranges (consolidated groupings to `>30,000` to account for low volume in higher goal ranges):
+  Below, we are looking at Outcomes based on Goal ranges (I have consolidated groupings with a goal higher than `30,000` into one cohort to account for low volume above 30k):
   ![Outcome percentage based on Goals](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcomes%20Based%20on%20Goals%20Consolidated.png)
   
-  - There is a clear inverse relationship (negative correlation) between a Play's Success rate & Goal amount, while there is a positive correlation between Failure Rate and Goal amount. 
-  - This makes sense seeing as the "Success" of a play is defined by whether it has hit its goal or not and an inflated goal would make it more difficult for plays to succeed by those standards.
+  - There appears to be an inverse relationship (negative correlation) between a Play's Success rate & Goal amount, while there is a positive correlation between Failure Rate and Goal amount. 
+  - This makes sense seeing as the "Success" of a play is defined by whether it achieves its set Goal and an inflated goal would make it more difficult for plays to succeed by those standards.
   - General takeaway here would be: *Choose a realistic financial Goal*
   
   ##### Campaign Length
-  Now that we know that there aren't any seasonal trends we need to consider when it comes to success and that we should choose a realistic goal if we want our play to be deemed a success, we should now look at whether the length of our campaigns has an effect on success.
+  Now that we have data to support that there aren't any seasonal trends we need to consider and that we should choose a realistic goal if we want our play to be deemed a success, we can now look at whether the length of our campaigns affects our success rate.
   
-  I first started by calculating the length of each campaign in days and then grouped them into three brackets (all in days):
+  I first started by calculating the length of each "Play" campaign and then grouped them into three brackets (measured in **days**):
   
 1. "1-20"
 2. "21-40"
 3. "40+"
 
-Now that we have our groups, let's take a look at the success rate broken out between them:
+With all of the plays broken out into groups, I then calculated the success rate broken out between them:
 ![Outcome by Length of Campaign](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Outcome%20by%20Length%20of%20Campaign.png)
 
-- Based on this chart, I'd be inclined to conclude that shorter campaigns (i.e. <40 days) are more successful than longer campaigns. However, due to our findings with Goal setting, we Should first see if there is any difference in average goals within each grouping:
+- Based on this chart, I'd be inclined to conclude that shorter campaigns (i.e. <40 days) have a higher success rate compared to longer campaigns. However, due to our findings with Goal setting, we Should first determine whether there is any difference in Goal amount within each grouping:
+![Avg Goal for All Plays](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Average%20Goals%20for%20Plays.png)
 
 ![Avg Goal for Successful Plays](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Avg%20Goals%20for%20Successful%20Plays.png)
 
 ![Avg Goal for Failed Plays](https://github.com/csparkma/berkeley-kickstarter-analysis/blob/master/Avg%20Goals%20for%20Failed%20Plays.png)
 
-- It's apparent that Successful campaigns have an average goal that is signifcantly less than Failed campaigns
-- That being said, it does appear that campaign length **does** contribute to the success of campaigns. We can see this as the avg goal for successful campaigns only differs by 8% between 21-40 day campaigns and 40+ day campaigns, yet the difference between their success rate is 62% (42% for "40+" campaigns and 68% for "21-40").
-- We can conclude that campaigns with both shorter campaign lengths and a smaller goal are more successful.
+- It's apparent that Successful campaigns have an average goal that is signifcantly lower than Failed campaigns. The **highest** average Goal for Successful plays is still **4.5% lower than the lowest average Goal for Failed plays.** But I do not think we can conclude that *Average goal* is the only influencing factor.
+- Looking at the chart for Successful plays, we can see the *Average goal* between the "1-20" group and the "21-40" group **increases by 83%** with little change in the Success rate. Seeing as the *Average goal* for both groups is still relatively low, this doesn't surprise me.
+- However, the *Average Goal* between the "21-40" group and the "40+" group **only increases 8%** yet the *Success Rate* drops signficantly (42% for "40+" campaigns from 68% for "21-40")!
+- Meaning, there appears to be a significant dropoff in Success rate for campaigns that run longer than 40 days, even with little change to the Average goal. 
+
+##### Conclusion
+- Given the above analysis, I belive there is sufficient evidence to suggest that both the Goal and the length of the campaign contribute to its overall succcess. However, without additional data on *how long it took for each campaign to hit its goal*(not just how long the campaign ran), it would be difficult to quantiy by how much.
+- Additional analysis should also be done on whether `backer_count` and `geographic region` influence overall success rate. While we can draw some conclusions from the above analysis, it would be inadvisable to use it to conclude that it is only Goal and the length of the campaign that lead to success. 
 
 
 
